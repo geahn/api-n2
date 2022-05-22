@@ -43,25 +43,18 @@
             $username = $data['username'];
             $password = $data['password'];
 
-            if ($username && $password) {
-                $con_string = 'host='.DBHOST.' port=5432 dbname='.DBNAME.' user='.DBUSER.' password='.DBPASS;
-                $bdcon = pg_connect($con_string);
+            $con_string = 'host='.DBHOST.' port=5432 dbname='.DBNAME.' user='.DBUSER.' password='.DBPASS;
+            $bdcon = pg_connect($con_string);
 
-                //$result = pg_query($bdcon, "INSERT INTO daniel_geahn.".self::$table." (username, password, status) VALUES ('".$data['username']."', '".$data['password']."', '1')");
-                $result = pg_query($bdcon, "INSERT INTO daniel_geahn.".self::$table." (username, password, status) VALUES ('$username', '$password', '1')");
+            //$result = pg_query($bdcon, "INSERT INTO daniel_geahn.".self::$table." (username, password, status) VALUES ('".$data['username']."', '".$data['password']."', '1')");
+            $result = pg_query($bdcon, "INSERT INTO daniel_geahn.".self::$table." (username, password, status) VALUES ('".$username."', '".$password."', '1')");
 
-                if (!$result) {
-                throw new \Exception("Falha ao inserir!");
-                exit;
-                } else {
-                    return "Inserido com sucesso!";
-                }
+            if (!$result) {
+            throw new \Exception("Falha ao inserir!");
+            exit;
             } else {
-                throw new \Exception("Dados incompletos para inserir!");
-                exit;
+                return "Inserido com sucesso!";
             }
-
-            
         }
 
         public static function update($id) {
