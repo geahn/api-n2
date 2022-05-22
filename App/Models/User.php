@@ -15,7 +15,7 @@
             $numrows = pg_numrows($result);
 
             if (!$numrows) {
-            throw new \Exception("Nenhum usuário encontrado");
+            throw new \Exception("Nenhum usuário encontradox");
             exit;
             } else {
                 return $arr = pg_fetch_array($result, NULL, PGSQL_ASSOC);
