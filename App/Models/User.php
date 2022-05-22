@@ -57,7 +57,8 @@
                     return "Inserido com sucesso!";
                 }
             } else {
-                return "Dados incompletos para a inserção!";
+                throw new \Exception("Dados incompletos para inserir!");
+                exit;
             }
 
             
