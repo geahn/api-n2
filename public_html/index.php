@@ -1,6 +1,6 @@
 <?php
     header('Content-Type: application/json');
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
         // The request is using the POST method
         header("HTTP/1.1 200 OK");
         return;
