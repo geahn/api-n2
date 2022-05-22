@@ -3,8 +3,11 @@
     if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
         // The request is using the POST method
         header("HTTP/1.1 200 OK");
-        header("Access-Control-Allow-Origin: *");
         header('Content-Type: application/json');
+        header("Access-Control-Allow-Origin: *");
+        header("Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Cache-Control, Pragma, Authorization, Accept, Accept-Encoding");
+        header("Cache-Control: no-cache, must-revalidate"); 
+        header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
         return;
     
     }
