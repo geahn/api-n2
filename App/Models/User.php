@@ -39,10 +39,15 @@
         }
 
         public static function insert($data) {
+
+            $username = $data['username'];
+            $password = $data['password'];
+
             $con_string = 'host='.DBHOST.' port=5432 dbname='.DBNAME.' user='.DBUSER.' password='.DBPASS;
             $bdcon = pg_connect($con_string);
 
-            $result = pg_query($bdcon, "INSERT INTO daniel_geahn.".self::$table." (username, password, status) VALUES ('".$data['username']."', '".$data['password']."', '1')");
+            //$result = pg_query($bdcon, "INSERT INTO daniel_geahn.".self::$table." (username, password, status) VALUES ('".$data['username']."', '".$data['password']."', '1')");
+            $result = pg_query($bdcon, "INSERT INTO daniel_geahn.".self::$table." (username, password, status) VALUES ('$username', '$password', '1')");
 
             if (!$result) {
             throw new \Exception("Falha ao inserir!");
@@ -50,6 +55,9 @@
             } else {
                 return "Inserido com sucesso!";
             }
+        }
+
+        public static function update($id) {
 
         }
     }

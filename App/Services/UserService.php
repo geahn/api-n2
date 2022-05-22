@@ -13,7 +13,6 @@
         }
 
         public function post() {
-           $data = $_POST;
-           return  User::insert($data);
+           return  User::insert($_POST);
         }
     }
