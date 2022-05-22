@@ -1,5 +1,12 @@
 <?php
-    //header('Content-Type: application/json');
+    header('Content-Type: application/json');
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // The request is using the POST method
+        header("HTTP/1.1 200 OK");
+        return;
+    
+    }
+
 
     //CORS HEADERS
     header("Access-Control-Allow-Origin: *");
