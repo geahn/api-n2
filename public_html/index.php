@@ -4,6 +4,7 @@
         // The request is using the POST method
         header("HTTP/1.1 200 OK");
         header("Access-Control-Allow-Origin: *");
+        header('Content-Type: application/json');
         return;
     
     }
