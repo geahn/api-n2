@@ -11,7 +11,9 @@
     header("Access-Control-Allow-Credentials", "true");
     header("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
     header("Access-Control-Max-Age", "3600");
-    header("Access-Control-Allow-Headers", "Content-Type, Accept, X-Requested-With, remember-me");
+    header("Access-Control-Allow-Headers", "Content-Type, Accept, X-Requested-With, remember-me, Origin, Cache-Control, Pragma, Authorization, Accept-Encoding");
+    header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
+    header("Cache-Control: no-cache, must-revalidate"); 
 
     require_once '../vendor/autoload.php';
     
