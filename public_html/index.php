@@ -7,11 +7,11 @@
     // header("Cache-Control: no-cache, must-revalidate"); 
     // header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
 
-    Header("Access-Control-Allow-Origin", "*");
-    Header("Access-Control-Allow-Credentials", "true");
-    Header("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
-    Header("Access-Control-Max-Age", "3600");
-    Header("Access-Control-Allow-Headers", "Content-Type, Accept, X-Requested-With, remember-me");
+    header("Access-Control-Allow-Origin", "*");
+    header("Access-Control-Allow-Credentials", "true");
+    header("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+    header("Access-Control-Max-Age", "3600");
+    header("Access-Control-Allow-Headers", "Content-Type, Accept, X-Requested-With, remember-me");
 
     require_once '../vendor/autoload.php';
     
