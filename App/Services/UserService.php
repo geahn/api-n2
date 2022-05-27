@@ -12,7 +12,7 @@
             }
         }
 
-        public function post($data) {
+        public function post() {
            return  User::insert($_POST);
         }
     }
