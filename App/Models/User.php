@@ -58,7 +58,7 @@
             throw new \Exception("Falha ao inserir!");
             exit;
             } else {
-                return "Inserido com sucesso! Usuário: ".$username;
+                return "Inserido com sucesso!";
             }
         }
 
