@@ -43,7 +43,7 @@
             $username = $data['username'];
             $password = $data['password'];
 
-            if (!$username && !!$password) {
+            if (!$username && !$password) {
                 throw new \Exception("Campos nulos!");
                 exit;
             }
