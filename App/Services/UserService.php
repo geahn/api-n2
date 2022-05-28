@@ -13,6 +13,7 @@
         }
 
         public function post() {
-           return  User::insert($_POST);
+            $data = json_decode(file_get_contents('php://input'), true);
+            return  User::insert($data);
         }
     }
