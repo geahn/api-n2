@@ -43,11 +43,6 @@
             $username = $data['username'];
             $password = $data['password'];
 
-            if (!$username && !$password) {
-                throw new \Exception("Campos nulos!");
-                exit;
-            }
-
             $con_string = 'host='.DBHOST.' port=5432 dbname='.DBNAME.' user='.DBUSER.' password='.DBPASS;
             $bdcon = pg_connect($con_string);
 
@@ -58,7 +53,7 @@
             throw new \Exception("Falha ao inserir!");
             exit;
             } else {
-                return "Inserido com sucesso!";
+                return "Inserido com sucesso! Usuário: ".$username;
             }
         }
 
