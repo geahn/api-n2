@@ -36,20 +36,21 @@
                 $result = pg_query($bdcon, "INSERT INTO daniel_geahn.transactions (type, description, value, status) VALUES ('".$type."', '".$description."', '".$value."', '1')");
 
                 if (!$result) {
-                throw new \Exception("Falha ao inserir a Transação!" . " VALUES ".$data['type'].", ".$description.", ".$value.")");
+                throw new \Exception("Falha ao inserir a Transação!");
                 exit;
                 }
 
-                $result = pg_query($bdcon, "select * from daniel_geahn.transactions where id = (SELECT MAX(id) FROM daniel_geahn.transactions WHERE value = '".$value."' and description = '".$description."')");
+                $result = pg_query($bdcon, "select * from daniel_geahn.transactions where id = (SELECT MAX(id) FROM daniel_geahn.transactions WHERE value = '".$value."')");
+                $result = pg_fetch_assoc($result);
+                $transaction_id = $result['id'];
 
-                $result = pg_query($bdcon, "INSERT INTO daniel_geahn.user_releases (user_id, transaction_id, operation_type) VALUES ('".$user_id."', '".$result['id']."', 'C')");
+                $result = pg_query($bdcon, "INSERT INTO daniel_geahn.user_releases (user_id, transaction_id, operation_type) VALUES ('".$user_id."', '".$transaction_id."', 'C')");
 
                 if (!$result) {
-                throw new \Exception("Falha ao inserir a Relação!");
+                throw new \Exception("Falha ao inserir a Relação!"."INSERT INTO daniel_geahn.user_releases (user_id, transaction_id, operation_type) VALUES ('".$user_id."', '".$transaction_id."', 'C')");
                 exit;
                 } else {
                     return $data;
-                    //return "Inserido com sucesso! Usuário: ".$data['username'];
                 }
                 
         }
