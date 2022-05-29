@@ -8,9 +8,10 @@
             return Transaction::select($user_id);
         }
 
-
         public function post() {
-            $data = json_decode(file_get_contents('php://input'), true);
-            return  Transaction::insert($data);
+
+            return $data = json_decode(file_get_contents('php://input'), true);
+            //$data = json_decode(file_get_contents('php://input'), true);
+            //vaireturn  Transaction::insert($data);
         }
     }
