@@ -9,9 +9,7 @@
         }
 
         public function post() {
-
-            return $data = json_decode(file_get_contents('php://input'), true);
-            //$data = json_decode(file_get_contents('php://input'), true);
-            //vaireturn  Transaction::insert($data);
+            $data = json_decode(file_get_contents('php://input'), true);
+            return  Transaction::insert($data);
         }
     }
