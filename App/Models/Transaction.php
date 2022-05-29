@@ -22,4 +22,35 @@
                 return $arr = pg_fetch_all($result, PGSQL_ASSOC);
             }
         }
+
+        public static function insert($data) {
+
+            $user_id = $data['user_id'];
+            $type = $data['type'];
+            $description = $data['description'];
+            $value = $data['value'];
+
+                $con_string = 'host='.DBHOST.' port=5432 dbname='.DBNAME.' user='.DBUSER.' password='.DBPASS;
+                $bdcon = pg_connect($con_string);
+
+                $result = pg_query($bdcon, "INSERT INTO daniel_geahn.transactions (type, description, value, status) VALUES ('".$type."', '".$description."', '".$value."', '1')");
+
+                if (!$result) {
+                throw new \Exception("Falha ao inserir a Transação!");
+                exit;
+                }
+
+                $result = pg_query($bdcon, "select * from daniel_geahn.transactions where id = (SELECT MAX(id) FROM daniel_geahn.transactions WHERE value = '".$value."' and description = '".$description."')");
+
+                $result = pg_query($bdcon, "INSERT INTO daniel_geahn.user_releases (user_id, transaction_id, operation_type) VALUES ('".$user_id."', '".$result['id']."', 'C')");
+
+                if (!$result) {
+                throw new \Exception("Falha ao inserir a Transação!");
+                exit;
+                } else {
+                    return $data;
+                    //return "Inserido com sucesso! Usuário: ".$data['username'];
+                }
+                
+        }
     }
