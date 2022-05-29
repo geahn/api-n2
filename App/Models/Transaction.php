@@ -45,7 +45,7 @@
                 $result = pg_query($bdcon, "INSERT INTO daniel_geahn.user_releases (user_id, transaction_id, operation_type) VALUES ('".$user_id."', '".$result['id']."', 'C')");
 
                 if (!$result) {
-                throw new \Exception("Falha ao inserir a Transação!");
+                throw new \Exception("Falha ao inserir a Relação!");
                 exit;
                 } else {
                     return $data;
