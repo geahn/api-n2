@@ -36,7 +36,7 @@
                 $result = pg_query($bdcon, "INSERT INTO daniel_geahn.transactions (type, description, value, status) VALUES ('".$type."', '".$description."', '".$value."', '1')");
 
                 if (!$result) {
-                throw new \Exception("Falha ao inserir a Transação!" + "VALUES ".$type.", ".$description.", ".$value.")");
+                throw new \Exception("Falha ao inserir a Transação!" . " VALUES ".$type.", ".$description.", ".$value.")");
                 exit;
                 }
 
