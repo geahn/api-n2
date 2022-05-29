@@ -4,7 +4,7 @@
 
     class Transaction {
 
-        public static function select($user_id, $date) {
+        public static function select($user_id) {
 
             if (!$date) {
                 $date = date('Y-m-d');
