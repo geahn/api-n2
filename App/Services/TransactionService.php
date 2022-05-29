@@ -4,7 +4,7 @@
     use App\Models\Transaction;
 
     class TransactionService {
-        public function get($user_id = null) {
-            return Transaction::select($user_id);
+        public function get($user_id = null, $date = null) {
+            return Transaction::select($user_id, $date);
         }
     }
