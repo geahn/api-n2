@@ -46,7 +46,6 @@
                 $con_string = 'host='.DBHOST.' port=5432 dbname='.DBNAME.' user='.DBUSER.' password='.DBPASS;
                 $bdcon = pg_connect($con_string);
 
-                //$result = pg_query($bdcon, "INSERT INTO daniel_geahn.".self::$table." (username, password, status) VALUES ('".$data['username']."', '".$data['password']."', '1')");
                 $result = pg_query($bdcon, "INSERT INTO daniel_geahn.".self::$table." (username, password, status) VALUES ('".$username."', '".$password."', '1')");
 
                 if (!$result) {
@@ -59,6 +58,23 @@
         }
 
         public static function update($id) {
+
+            $user_id = $data['user_id'];
+            $password = $data['password'];
+
+            return "UPDATE daniel_geahn.".self::$table." SET password = '".$password."' WHERE id = '".$user_id."'";
+
+            // $con_string = 'host='.DBHOST.' port=5432 dbname='.DBNAME.' user='.DBUSER.' password='.DBPASS;
+            // $bdcon = pg_connect($con_string);
+
+            // $result = pg_query($bdcon, "UPDATE daniel_geahn.".self::$table." SET password = '".$password."' WHERE id = '".$user_id."'");
+
+            // if (!$result) {
+            //     throw new \Exception("Falha ao alterar usuário!");
+            //     exit;
+            //     } else {
+            //         return $data;
+            //     }
 
         }
     }
