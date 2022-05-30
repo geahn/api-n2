@@ -57,7 +57,7 @@
                 }
         }
 
-        public static function update($id) {
+        public static function update($data) {
 
             $user_id = $data['user_id'];
             $password = $data['password'];
