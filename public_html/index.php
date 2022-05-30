@@ -27,7 +27,7 @@
             $service = 'App\Services\\'.ucfirst($url[0]).'Service';
             array_shift($url);
 
-            $method = strtolower($_SERVER['REQUEST_METHOD']);
+            return $method = strtolower($_SERVER['REQUEST_METHOD']);
             
             try {
                 $response = call_user_func_array(array(new $service, $method), $url);

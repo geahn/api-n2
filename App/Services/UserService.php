@@ -18,8 +18,7 @@
         }
 
         public function patch() {
-            $data = $_POST;
-            //$data = json_decode(file_get_contents('php://input'), true);
+            $data = json_decode(file_get_contents('php://input'), true);
             return  User::update($data);
         }
     }
