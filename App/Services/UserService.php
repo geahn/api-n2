@@ -18,10 +18,15 @@
         }
 
         public function patch() {
-            //$data = $_PATCH;
-            return $data = file_get_contents('php://input');
+            $_PATCH = [];
+            parse_str(file_get_contents('php://input'), $_PATCH);
+            
+            $data = $_PATCH;
+
+
+            //return $data = file_get_contents('php://input');
             //$data = json_decode(file_get_contents('php://input'), true);
             //$data = parse_str(file_get_contents('php://input'), true);
-            // return  User::update($data);
+            return  User::update($data);
         }
     }
