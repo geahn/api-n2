@@ -63,7 +63,7 @@
             $con_string = 'host='.DBHOST.' port=5432 dbname='.DBNAME.' user='.DBUSER.' password='.DBPASS;
             $bdcon = pg_connect($con_string);
 
-            $result = pg_query($bdcon, "UPDATE daniel_geahn.".self::$table." SET value = '".$value."' WHERE id = '".$id."'");
+            $result = pg_query($bdcon, "UPDATE daniel_geahn.transactions SET value = '".$value."' WHERE id = '".$id."'");
 
             if (!$result) {
                 throw new \Exception("Falha ao alterar transação!");
