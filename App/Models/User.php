@@ -59,7 +59,7 @@
 
         public static function update($data) {
             
-            $user_id = json_decode($data['user_id']);
+            $user_id = ($data['user_id']);
             $password = $data['password'];     
 
             $con_string = 'host='.DBHOST.' port=5432 dbname='.DBNAME.' user='.DBUSER.' password='.DBPASS;
