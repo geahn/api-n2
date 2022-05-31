@@ -17,11 +17,10 @@
             return  User::insert($data);
         }
 
-        public function patch() {
-            $_PATCH = [];
-            parse_str(file_get_contents('php://input'), $_PATCH);
-            
-            $data = $_PATCH;
+        public function put() {
+            $_PUT = array();
+            parse_str(file_get_contents('php://input'), $_PUT);            
+            $data = $_PUT;
 
 
             //return $data = file_get_contents('php://input');
