@@ -59,9 +59,10 @@
 
         public static function update($data) {
             
-            return json_decode($data['password']);
+            $user_id = json_decode($data['user_id']);
+            $password = json_decode($data['password']);
 
-            //return "UPDATE daniel_geahn.".self::$table." SET password = '".$password."' WHERE id = '".$user_id."'";
+            return "UPDATE daniel_geahn.".self::$table." SET password = '".$password."' WHERE id = '".$user_id."'";
             
 
             // $con_string = 'host='.DBHOST.' port=5432 dbname='.DBNAME.' user='.DBUSER.' password='.DBPASS;
