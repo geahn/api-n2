@@ -60,9 +60,10 @@
         public static function update($data) {
 
             $user_id = $data['user_id'];
-            $password = $data['password'];
+            return $password = $data['password'];
 
-            return "UPDATE daniel_geahn.".self::$table." SET password = '".$password."' WHERE id = '".$user_id."'";
+            //return "UPDATE daniel_geahn.".self::$table." SET password = '".$password."' WHERE id = '".$user_id."'";
+            
 
             // $con_string = 'host='.DBHOST.' port=5432 dbname='.DBNAME.' user='.DBUSER.' password='.DBPASS;
             // $bdcon = pg_connect($con_string);
