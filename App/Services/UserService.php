@@ -18,10 +18,10 @@
         }
 
         public function put() {
+            
             $_PUT = array();
             parse_str(file_get_contents('php://input'), $_PUT);            
             return $data = $_PUT;
-
 
             //return $data = file_get_contents('php://input');
             //$data = json_decode(file_get_contents('php://input'), true);
