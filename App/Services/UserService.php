@@ -18,9 +18,7 @@
         }
 
         public function put() {
-            $input = (array) json_decode(file_get_contents('php://input'), TRUE);
-            parse_str(file_get_contents('php://input'), $_PUT);
-            $data = $_PUT;
-            return  User::update($input);
+            parse_str(file_get_contents('php://input'), $data);
+            return  User::update($data);
         }
     }
