@@ -60,7 +60,8 @@
         public static function update($data) {
 
             $user_id = $data['user_id'];
-            return $password = $data['password'];
+            $password = $data['password'];
+            return $data;
 
             //return "UPDATE daniel_geahn.".self::$table." SET password = '".$password."' WHERE id = '".$user_id."'";
             
