@@ -13,4 +13,9 @@
             $data = json_decode(file_get_contents('php://input'), true);
             return  Transaction::insert($data);
         }
+
+        public function put() {
+            $data = (array) json_decode(file_get_contents('php://input'), TRUE);
+            return Transaction::update($data);
+        }
     }

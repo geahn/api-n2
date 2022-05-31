@@ -52,6 +52,27 @@
                 } else {
                     return $data;
                 }
-                
+            
+        }
+
+        public static function update($data) {
+            
+            $user_id = json_decode($data['user_id']);
+            $password = $data['password'];
+
+            return ".UPDATE SET password = '".$password."' WHERE id = '".$user_id."'";
+
+            // $con_string = 'host='.DBHOST.' port=5432 dbname='.DBNAME.' user='.DBUSER.' password='.DBPASS;
+            // $bdcon = pg_connect($con_string);
+
+            // $result = pg_query($bdcon, "UPDATE daniel_geahn.".self::$table." SET password = '".$password."' WHERE id = '".$user_id."'");
+
+            // if (!$result) {
+            //     throw new \Exception("Falha ao alterar usuário!");
+            //     exit;
+            //     } else {
+            //         return $data;
+            //     }
+
         }
     }
