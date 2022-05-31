@@ -17,7 +17,7 @@
             return  User::insert($data);
         }
 
-        public function delete() {
+        public function put() {
             parse_str(file_get_contents('php://input'), $_PUT);
             $data = $_PUT;
             return  User::update($data);
