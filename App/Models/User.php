@@ -59,7 +59,7 @@
 
         public static function update($data) {
 
-            $user_id = $data['user_id'];
+            
             return json_decode($password = $data['password']);
 
             //return "UPDATE daniel_geahn.".self::$table." SET password = '".$password."' WHERE id = '".$user_id."'";
