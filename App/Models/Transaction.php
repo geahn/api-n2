@@ -4,6 +4,21 @@
 
     class Transaction {
 
+        public static function select($transacao) {
+            $con_string = 'host='.DBHOST.' port=5432 dbname='.DBNAME.' user='.DBUSER.' password='.DBPASS;
+            $bdcon = pg_connect($con_string);
+
+            $result = pg_query($bdcon, "SELECT * FROM daniel_geahn.transactions WHERE id = '".$transacao."'");
+            $numrows = pg_numrows($result);
+
+            if (!$numrows) {
+            throw new \Exception("Nenhuma transação encontrada");
+            exit;
+            } else {
+                return $arr = pg_fetch_all($result, PGSQL_ASSOC);
+            }
+        }
+
         public static function selectAll($user_id) {
             $con_string = 'host='.DBHOST.' port=5432 dbname='.DBNAME.' user='.DBUSER.' password='.DBPASS;
             $bdcon = pg_connect($con_string);

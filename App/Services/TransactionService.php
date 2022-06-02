@@ -4,8 +4,12 @@
     use App\Models\Transaction;
 
     class TransactionService {
-        public function get($user_id = null) {
-            return Transaction::selectAll($user_id);
+        public function get($user_id = null, $transacao = null) {
+            if (!$transacao) {
+                return Transaction::selectAll($user_id);
+            } else {
+                return Transaction::select($transacao);
+            }
         }
 
         public function post() {
