@@ -5,7 +5,7 @@
 
     class TransactionService {
         public function get($user_id = null) {
-            return Transaction::select($user_id);
+            return Transaction::selectAll($user_id);
         }
 
         public function post() {
