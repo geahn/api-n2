@@ -55,7 +55,7 @@
                 $result = pg_fetch_assoc($result);
                 $transaction_id = $result['id'];
 
-                $result = pg_query($bdcon, "INSERT INTO daniel_geahn.user_releases (user_id, transaction_id, operation_type) VALUES ('".$user_id."', '".$transaction_id."', 'C')");
+                $result = pg_query($bdcon, "INSERT INTO daniel_geahn.user_releases (user_id, transaction_id, operation_type, value) VALUES ('".$user_id."', '".$transaction_id."', 'C', '".$value."')");
 
                 if (!$result) {
                 throw new \Exception("Falha ao inserir a Relação!");
