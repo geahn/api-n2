@@ -68,13 +68,16 @@
 
         public static function update($data) {
             
-            $id = json_decode($data['id']);
+            $user_id = json_decode($data['user_id']);
             $value = $data['value'];
+            $transaction_id = $data['transaction_id'];
 
             $con_string = 'host='.DBHOST.' port=5432 dbname='.DBNAME.' user='.DBUSER.' password='.DBPASS;
             $bdcon = pg_connect($con_string);
 
-            $result = pg_query($bdcon, "UPDATE daniel_geahn.transactions SET value = '".$value."' WHERE id = '".$id."'");
+            //$result = pg_query($bdcon, "UPDATE daniel_geahn.transactions SET value = '".$value."' WHERE id = '".$id."'");
+            $result = pg_query($bdcon, "INSERT INTO daniel_geahn.user_releases (user_id, transaction_id, operation_type, value)
+            VALUES ('".$user_id."', '".$transaction_id."', 'U', '".$value."')");
 
             if (!$result) {
                 throw new \Exception("Falha ao alterar transação!");
